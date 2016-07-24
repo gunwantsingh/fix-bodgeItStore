@@ -7,12 +7,14 @@ boolean loggedIn = false;
 String username = (String) request.getParameter("username");
 String password = (String) request.getParameter("password");
 String debug = "Clear";
+String selectSQL = "SELECT USER_ID, USERNAME FROM DBUSER WHERE USER_ID = ?";
 
 if (request.getMethod().equals("POST") && username != null) {
-	Statement stmt = conn.createStatement();
+        PreparedStatement preparedStatement = conn.prepareStatement(selectSQL);
+        preparedStatement.setInt(1, 1001);
 	ResultSet rs = null;
 	try {
-		rs = stmt.executeQuery("SELECT * FROM Users WHERE (name = '" + username + "' AND password = '" + password + "')");
+                rs = preparedStatement.executeQuery(selectSQL );		
 		if (rs.next()) {
 			loggedIn = true;
 			debug="Logged in";
