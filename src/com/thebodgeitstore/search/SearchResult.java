@@ -1,4 +1,4 @@
-package com.thebodgeitstore.search;
+package nanacom.thebodgeitstore.search;
 
 //Author: Doug Logan
 //Email: dlogan@CyberNinjas.com
