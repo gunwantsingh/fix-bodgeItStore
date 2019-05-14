@@ -1,0 +1,22 @@
+{
+  "summary": {
+    "title": "TM Title",
+    "owner": "Gunwant",
+    "description": "this is a test description"
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Gunwant"
+      }
+    ],
+    "diagrams": [
+      {
+        "title": "Tango",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0
+      }
+    ],
+    "reviewer": "reviewer"
+  }
+}
