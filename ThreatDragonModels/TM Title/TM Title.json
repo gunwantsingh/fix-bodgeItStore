@@ -25,21 +25,31 @@
               },
               "position": {
                 "x": 61,
-                "y": 112
+                "y": 111
               },
               "angle": 0,
               "id": "8e8234e6-a49f-46c5-94a0-415656f4ab1e",
               "z": 1,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Authorization Bypass",
+                  "type": "Elevation of privilege",
+                  "description": "descr",
+                  "mitigation": "fix using this..."
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "process 0"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -82,7 +92,10 @@
               "id": "3c76c359-4705-4200-8fde-bfb090929790",
               "labels": [
                 {
-                  "position": 0.5,
+                  "position": {
+                    "distance": 0.5061267817047959,
+                    "offset": 33.85882651433349
+                  },
                   "attrs": {
                     "text": {
                       "text": "flow 2",
@@ -93,7 +106,57 @@
                 }
               ],
               "z": 3,
-              "attrs": {}
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "smooth": true,
+              "source": {
+                "id": "8e8234e6-a49f-46c5-94a0-415656f4ab1e"
+              },
+              "target": {
+                "id": "bedce4a0-8c06-4852-a06e-0025b8c86727"
+              },
+              "vertices": [
+                {
+                  "x": 240,
+                  "y": 192
+                }
+              ],
+              "id": "54588f2e-86ef-4931-b853-83f52b77d706",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.5417131842659716,
+                    "offset": 26.790855740197003
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "flow 3",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 4,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
             }
           ]
         },
