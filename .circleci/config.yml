@@ -1,23 +1,13 @@
 version: 2.1
 jobs:
-  build:
-    docker:
-      - image: alpine:3.7 
-    steps:
-      - run:
-          name: The First Step
-          command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
-
-  security-scan:
+  semgrep-scan:
     parameters:
       repo_path:
         type: string
         default: ${CIRCLE_BRANCH}
       default_branch:
         type: string
-        default: ${CIRCLE_BRANCH}
+        default: main
     environment:
       SEMGREP_RULES: >- # more at semgrep.dev/explore
         p/security-audit
@@ -26,11 +16,30 @@ jobs:
       # Scan changed files in PRs, block on new issues only (existing issues ignored)
       SEMGREP_BASELINE_REF: << parameters.default_branch >>
 
+    # == Optional settings in the `environment:` block
+
+    # Instead of `SEMGREP_RULES:`, use rules set in Semgrep App.
+    # Get your token from semgrep.dev/manage/settings.
+    #   SEMGREP_APP_TOKEN: $SEMGREP_APP_TOKEN
+    #   SEMGREP_REPO_NAME: << parameters.repo_path >>
+    #   SEMGREP_REPO_URL: << pipeline.project.git_url >>
+    #   SEMGREP_BRANCH: << pipeline.git.branch >>
+
+    # Never fail the build due to findings.
+    # Instead, just collect findings for semgrep.dev/manage/findings
+    #   SEMGREP_AUDIT_ON: unknown
+
+    # Change job timeout (default is 1800 seconds; set to 0 to disable)
+    #   SEMGREP_TIMEOUT: 300
 
     docker:
-        - image: returntocorp/semgrep-agent:v1
+      - image: returntocorp/semgrep-agent:v1
     steps:
       - checkout
       - run:
           name: "Semgrep scan"
           command: semgrep-agent
+workflows:
+  main:
+    jobs:
+      - semgrep-scan
