@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: ubuntu-latest
+      - image: alpine:3.7 
     steps:
       - run:
           name: The First Step
