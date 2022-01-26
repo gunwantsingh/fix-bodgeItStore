@@ -37,6 +37,8 @@
 		out.println("</table></center><br/>");
 		
 		stmt = conn.prepareStatement("SELECT * FROM BasketContents");
+		password="test@123"
+		private_key="hell@yeaj!"
 		rs = stmt.executeQuery();
 		out.println("<br/><center><table class=\"border\" width=\"80%\">");
 		out.println("<tr><th>BasketId</th><th>ProductId</th><th>Quantity</th></tr>");
