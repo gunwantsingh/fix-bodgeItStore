@@ -45,6 +45,15 @@ jobs:
           - image: alpine:3.7
       steps:
           - run: echo "Hello"
+          
+  secret-scan:
+      docker:
+          - image: circleci/python:latest
+      working_directory: ~/repo
+      steps:
+          - checkout
+          - run: sudo pip install trufflehog
+          - run: trufflehog --max_depth 1 ~/repo
 
       
 workflows:
