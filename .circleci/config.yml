@@ -31,7 +31,7 @@ jobs:
 
     # Change job timeout (default is 1800 seconds; set to 0 to disable)
     #   SEMGREP_TIMEOUT: 300
-
+      SEMGREP_AUDIT_ON: unknown
     docker:
       - image: returntocorp/semgrep-agent:v1
     steps:
