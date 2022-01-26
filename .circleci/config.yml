@@ -42,12 +42,12 @@ jobs:
           
   secret-scan:
       docker:
-          - image: circleci/python:latest
-      working_directory: ~/repo
+          - image: alpine:3.7
       steps:
           - checkout
-          - run: pip install trufflehog
-          - run: trufflehog --max_depth 1 ~/repo
+          - run: curl -s  https://api.github.com/repos/zricethezav/gitleaks/releases/latest |grep browser_download_url  |  cut -d '"' -f 4  | grep '\linux-amd64$'| wget -i -
+          - run: mv gitleaks-linux-amd64 gitleaks; chmod +x gitleaks; sudo mv gitleaks /usr/local/bin/
+          - run: gitleaks --version
 
       
 workflows:
