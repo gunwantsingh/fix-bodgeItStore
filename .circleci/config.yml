@@ -7,14 +7,14 @@ jobs:
         default: ${CIRCLE_BRANCH}
       default_branch:
         type: string
-        default: main
+        default: master
     environment:
       SEMGREP_RULES: >- # more at semgrep.dev/explore
         p/security-audit
         p/secrets
 
       # Scan changed files in PRs, block on new issues only (existing issues ignored)
-      SEMGREP_BASELINE_REF: << parameters.default_branch >>
+      #SEMGREP_BASELINE_REF: << parameters.default_branch >>
 
     # == Optional settings in the `environment:` block
 
