@@ -53,7 +53,7 @@ jobs:
       steps:
           - checkout
           - run: sudo pip install trufflehog
-          - run: trufflehog --max_depth 1 ~/
+          - run: trufflehog --max_depth 1 ../
 
       
 workflows:
