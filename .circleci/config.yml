@@ -39,12 +39,6 @@ jobs:
       - run:
           name: "Semgrep scan"
           command: semgrep-agent
-
-  testing-scan:
-      docker: 
-          - image: alpine:3.7
-      steps:
-          - run: echo "Hello"
           
   secret-scan:
       docker:
@@ -52,6 +46,8 @@ jobs:
       working_directory: ~/repo
       steps:
           - checkout
+          - run: pwd
+          - run: ls
           - run: trufflehog --max_depth 1 ~/repo
 
       
@@ -59,5 +55,4 @@ workflows:
   main:
     jobs:
       - semgrep-scan
-      - testing-scan
       - secret-scan
