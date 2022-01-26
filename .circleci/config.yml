@@ -45,7 +45,7 @@ jobs:
           - image: dxa4481/trufflehog
       steps:
           - checkout
-          - run: trufflehog $CIRCLE_WORKING_DIRECTORY
+          - run: trufflehog $CIRCLE_WORKING_DIRECTORY -entropy=false
       
 workflows:
   main:
