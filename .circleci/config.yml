@@ -45,7 +45,6 @@ jobs:
           - image: zricethezav/gitleaks
       steps:
           - checkout
-          - run: gitleaks --version
           - run: gitleaks --repo-url=$CIRCLE_WORKING_DIRECTORY
 
       
