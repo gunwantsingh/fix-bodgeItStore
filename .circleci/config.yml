@@ -42,12 +42,11 @@ jobs:
           
   secret-scan:
       docker:
-          - image: dxa4481/trufflehog
+          - image: circleci/python:latest
       working_directory: ~/repo
       steps:
           - checkout
-          - run: pwd
-          - run: ls
+          - run: ls | pwd
           - run: trufflehog --max_depth 1 ~/repo
 
       
