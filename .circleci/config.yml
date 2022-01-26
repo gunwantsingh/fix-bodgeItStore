@@ -42,12 +42,11 @@ jobs:
           
   secret-scan:
       docker:
-          - image: alpine:3.7
+          - image: zricethezav/gitleaks
       steps:
           - checkout
-          - run: curl -s  https://api.github.com/repos/zricethezav/gitleaks/releases/latest |grep browser_download_url  |  cut -d '"' -f 4  | grep '\linux-amd64$'| wget -i -
-          - run: mv gitleaks-linux-amd64 gitleaks; chmod +x gitleaks; sudo mv gitleaks /usr/local/bin/
           - run: gitleaks --version
+          - run: gitleaks --repo-url=$CIRCLE_WORKING_DIRECTORY
 
       
 workflows:
