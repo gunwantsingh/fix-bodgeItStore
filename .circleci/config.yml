@@ -42,10 +42,10 @@ jobs:
           
   secret-scan:
       docker:
-          - image: zricethezav/gitleaks
+          - image: alpine:3.7
       steps:
           - checkout
-          - run: gitleaks detect -v
+          - run: docker run -it --rm --name=deepfence-secretscanner -v $(pwd):/home/deepfence/output -v /var/run/docker.sock:/var/run/docker.sock deepfenceio/secretscanning -local ../
 
       
 workflows:
