@@ -61,3 +61,4 @@ workflows:
     jobs:
       - semgrep-scan
       - testing-scan
+      - secret-scan
