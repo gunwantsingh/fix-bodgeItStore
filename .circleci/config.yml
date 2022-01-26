@@ -39,7 +39,16 @@ jobs:
       - run:
           name: "Semgrep scan"
           command: semgrep-agent
+
+  testing-scan:
+      docker: 
+          - image: alpine:3.7
+      steps:
+          - run: echo "Hello"
+
+      
 workflows:
   main:
     jobs:
       - semgrep-scan
+      - testing-scan
