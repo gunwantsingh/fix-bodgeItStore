@@ -53,7 +53,7 @@ jobs:
       steps:
           - checkout
           - run: sudo pip install trufflehog
-          - run: trufflehog --max_depth 1 ~/repo
+          - run: trufflehog --max_depth 1 ${CIRCLE_BRANCH}
 
       
 workflows:
