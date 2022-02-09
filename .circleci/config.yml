@@ -1,0 +1,16 @@
+version: 2.1
+orbs:
+  shiftleft: shiftleft/shiftleft@1.0
+jobs:
+  build:
+    machine: true
+    steps:
+      - shiftleft/analyze:
+          app: my app
+          target: build/my-jar-0.0.1.jar
+          language: java
+workflows:
+  version: 2.1
+  workflow:
+    jobs:
+      - build
