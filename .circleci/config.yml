@@ -8,7 +8,7 @@ jobs:
     steps:
       - shiftleft/analyze:
           app: my app
-          target: build/my-jar-0.0.1.jar
+          target: root
           language: java
 workflows:
   version: 2.1
